@@ -1584,7 +1584,7 @@
                     "name": "Select",
                     "type": "Button",
                     "id": "7fed8a43-b4c5-42fc-8b13-3a98775be493",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

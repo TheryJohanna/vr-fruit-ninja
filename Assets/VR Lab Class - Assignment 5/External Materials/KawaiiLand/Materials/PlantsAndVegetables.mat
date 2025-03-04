@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlantsAndVegetables
-  m_Shader: {fileID: 4800000, guid: eeb98200063fe1f4b8c8f5c7a5ba0ba8, type: 3}
+  m_Shader: {fileID: 4800000, guid: b8348fa16c433a240ace442819e9ba25, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

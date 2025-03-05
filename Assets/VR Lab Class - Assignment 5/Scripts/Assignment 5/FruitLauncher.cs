@@ -45,9 +45,21 @@ public class FruitLauncher : MonoBehaviour
         var fruitRigidbody = spawnedFruit.GetComponent<Rigidbody>();
         if (!fruitRigidbody.IsUnityNull())
         {
-            var randomDirection = new Vector3(Random.Range(-1f, 1f), 1, 1).normalized;
-            fruitRigidbody.AddForce(randomDirection * Random.Range(5f, 10f), ForceMode.Impulse);
+            var randomDirection = GetRandomDirectionInCone(spawnPoint.forward, spawnPoint.up, 25f);
+            fruitRigidbody.AddForce(randomDirection * Random.Range(5.5f, 7f), ForceMode.Impulse);
         }
+    }
+    
+    // Code from ChatGPT
+    Vector3 GetRandomDirectionInCone(Vector3 forward, Vector3 up, float coneAngle)
+    {
+        float angleInRadians = coneAngle * Mathf.Deg2Rad;
+
+        // Generate a random rotation within the cone
+        Quaternion randomRotation = Quaternion.AngleAxis(Random.Range(-coneAngle, coneAngle), Vector3.up) *
+                                    Quaternion.AngleAxis(Random.Range(-coneAngle, coneAngle), Vector3.right);
+
+        return randomRotation * (forward + up);
     }
     #endregion
 }

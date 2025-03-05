@@ -10,6 +10,8 @@ public class FruitLauncher : MonoBehaviour
     #region Member Variables
     [Header("Prefab Settings")]
     public GameObject[] fruits;
+    public GameObject[] fruitsSmall;
+    public GameObject[] fruitsLarge;
     
     [Header("Spawn Settings")]
     public Transform spawnPoint;

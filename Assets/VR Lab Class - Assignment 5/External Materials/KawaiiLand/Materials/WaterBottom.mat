@@ -81,11 +81,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SurfaceDistortion:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c53bb6b8c40b02141be3fdec5cc582e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SurfaceNoise:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e182ac5d3b797044fb29f3fa2acc3708, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
@@ -147,10 +147,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.14431292, g: 0.2954701, b: 0.4433962, a: 1}
     - _Color: {r: 0.64146495, g: 0.7604147, b: 0.8773585, a: 1}
-    - _DepthGradientDeep: {r: 0.08599996, g: 0.40699995, b: 1, a: 1}
-    - _DepthGradientShallow: {r: 0.32499996, g: 0.807, b: 0.971, a: 0.725}
+    - _DepthGradientDeep: {r: 0.02979703, g: 0.22515728, b: 0.5849056, a: 1}
+    - _DepthGradientShallow: {r: 0.32499993, g: 0.807, b: 0.971, a: 0.40784314}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 0}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.078431375}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SurfaceNoiseScroll: {r: 0.03, g: 0.03, b: 0, a: 0}
     - _Tint: {r: 0.20000002, g: 0.78823537, b: 0.9921569, a: 1}

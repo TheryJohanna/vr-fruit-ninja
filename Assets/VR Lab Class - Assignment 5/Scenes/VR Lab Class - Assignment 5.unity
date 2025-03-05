@@ -24138,7 +24138,7 @@ GameObject:
   - component: {fileID: 320726694}
   - component: {fileID: 320726693}
   - component: {fileID: 320726692}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146517,7 +146517,7 @@ GameObject:
   - component: {fileID: 2053622260}
   - component: {fileID: 2053622259}
   - component: {fileID: 2053622258}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterBottom Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}

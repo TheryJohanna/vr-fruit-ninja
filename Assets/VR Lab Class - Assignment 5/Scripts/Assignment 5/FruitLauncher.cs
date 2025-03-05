@@ -13,6 +13,7 @@ public class FruitLauncher : MonoBehaviour
     
     [Header("Spawn Settings")]
     public Transform spawnPoint;
+    public float coneAngle = 30f;
     public Button spawnButton;
     
     [Header("Physics Settings")]
@@ -45,7 +46,7 @@ public class FruitLauncher : MonoBehaviour
         var fruitRigidbody = spawnedFruit.GetComponent<Rigidbody>();
         if (!fruitRigidbody.IsUnityNull())
         {
-            var randomDirection = GetRandomDirectionInCone(spawnPoint.forward, spawnPoint.up, 25f);
+            var randomDirection = GetRandomDirectionInCone(spawnPoint.forward, spawnPoint.up, coneAngle);
             fruitRigidbody.AddForce(randomDirection * Random.Range(5.5f, 7f), ForceMode.Impulse);
         }
     }

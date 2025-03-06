@@ -512,6 +512,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "VR Navigation",
+            "id": "8a81af86-bee4-423c-b580-f4ed90690951",
+            "actions": [
+                {
+                    "name": "TeleportTargetSelection",
+                    "type": "Value",
+                    "id": "2193e594-04ca-4532-ba16-bf7c887eb289",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c24f5980-ef0e-42a9-a323-c6819459414a",
+                    "path": "<XRController>{RightHand}/{Trigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TeleportTargetSelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

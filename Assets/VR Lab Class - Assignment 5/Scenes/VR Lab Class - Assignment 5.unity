@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d168c0162d579834493612b46a8d2640, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -23983,7 +23983,7 @@ GameObject:
   - component: {fileID: 320726694}
   - component: {fileID: 320726693}
   - component: {fileID: 320726692}
-  m_Layer: 4
+  m_Layer: 7
   m_Name: WaterBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132667,7 +132667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1857323297}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146830,7 +146830,7 @@ GameObject:
   - component: {fileID: 2053622260}
   - component: {fileID: 2053622259}
   - component: {fileID: 2053622258}
-  m_Layer: 4
+  m_Layer: 7
   m_Name: WaterBottom Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}

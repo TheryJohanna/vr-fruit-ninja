@@ -441,7 +441,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 872713126962360500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cef7453bc2cf6942acf1a6ba3fb6460, type: 3}
+  m_Script: {fileID: 11500000, guid: 08f8d53f9184fa948a43b7d594eb706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xrRayInteractor: {fileID: 8155704397048206464}
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082968378722282512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cef7453bc2cf6942acf1a6ba3fb6460, type: 3}
+  m_Script: {fileID: 11500000, guid: 08f8d53f9184fa948a43b7d594eb706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xrRayInteractor: {fileID: 796505513482155158}
@@ -2393,12 +2393,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7216047633976425198}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 107ed7e1b6d74994acd1b65e36060d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportAction: {fileID: 0}
+  teleportAction: {fileID: 8081203511074140770, guid: d86920191e7b0cb41a4a7e1ff8fc9a2e, type: 3}
   head: {fileID: 7216047633375872280}
   hand: {fileID: 2679059498078427805}
   groundLayerMask:

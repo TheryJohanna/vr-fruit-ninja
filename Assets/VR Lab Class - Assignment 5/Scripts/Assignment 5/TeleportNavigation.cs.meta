@@ -1,3 +1,17 @@
 fileFormatVersion: 2
 guid: 107ed7e1b6d74994acd1b65e36060d27
-timeCreated: 1732796069
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - teleportAction: {instanceID: 0}
+  - head: {instanceID: 0}
+  - hand: {instanceID: 0}
+  - previewAvatar: {instanceID: 0}
+  - hitpoint: {instanceID: 0}
+  - lineVisual: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,6 +12,7 @@ public class FruitLauncher : MonoBehaviour
     public GameObject[] fruits;
     public GameObject[] fruitsSmall;
     public GameObject[] fruitsLarge;
+    public GameObject[] fruitsDebug;
     
     [Header("Spawn Settings")]
     public Transform spawnPoint;
@@ -38,10 +39,12 @@ public class FruitLauncher : MonoBehaviour
     [ServerRpc]
     void SpawnAndLaunch()
     {
-        if (fruits.Length == 0 || spawnPoint.IsUnityNull() || target.IsUnityNull())
+        var currentList = fruitsDebug;
+        
+        if (fruitsDebug.Length == 0 || spawnPoint.IsUnityNull() || target.IsUnityNull())
             return;
         
-        var currentFruit = fruits[Random.Range(0, fruits.Length)];
+        var currentFruit = fruitsDebug[Random.Range(0, currentList.Length)];
         var spawnedFruit = Instantiate(currentFruit, spawnPoint.position, Quaternion.identity);
         spawnedFruit.GetComponent<NetworkObject>().Spawn();
         

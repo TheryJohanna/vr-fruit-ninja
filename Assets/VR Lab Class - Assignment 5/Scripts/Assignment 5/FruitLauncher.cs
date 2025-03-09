@@ -30,14 +30,14 @@ public class FruitLauncher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(SpawnAndLaunch), 5f, 10f);
+        //InvokeRepeating(nameof(SpawnAndLaunch), 5f, 10f);
     }
     #endregion
     
     #region Helper Functions
     
     [ServerRpc]
-    void SpawnAndLaunch()
+    public void SpawnAndLaunch()
     {
         var currentList = fruitsDebug;
         

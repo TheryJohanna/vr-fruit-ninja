@@ -4,7 +4,7 @@ public class ObjectAccessHandler : NetworkBehaviour
 {
     #region Member Variables
 
-    private NetworkVariable<bool> isGrabbed = new();
+    private NetworkVariable<bool> _isGrabbed = new();
 
     #endregion
 
@@ -12,7 +12,7 @@ public class ObjectAccessHandler : NetworkBehaviour
 
     public bool RequestAccess()
     {
-        if (!isGrabbed.Value)
+        if (!_isGrabbed.Value)
         {
             GrabObjectRpc(NetworkManager.LocalClientId);
             return true;
@@ -26,7 +26,7 @@ public class ObjectAccessHandler : NetworkBehaviour
         if (IsOwner)
         {
             ReleaseObjectRpc();
-            isGrabbed.Value = false;
+            _isGrabbed.Value = false;
         }
             
     }
@@ -38,7 +38,7 @@ public class ObjectAccessHandler : NetworkBehaviour
     [Rpc(SendTo.Server, RequireOwnership = false)]
     private void GrabObjectRpc(ulong clientId)
     {
-        isGrabbed.Value = true;
+        _isGrabbed.Value = true;
         GetComponent<NetworkObject>().ChangeOwnership(clientId);
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,9 +31,10 @@ public class ButtonPress : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    [ServerRpc(RequireOwnership = false)]
+    void OnTriggerEnterRpc(Collider other)
     {
-        if (!isPressed)
+        if (!isPressed && other.CompareTag("User"))
         {
             Debug.Log(other.gameObject.name);
             button.transform.localPosition = new Vector3(_buttonTransform.localPosition.x, _buttonTransform.localPosition.y - pressDistance, _buttonTransform.localPosition.z);
@@ -42,7 +44,8 @@ public class ButtonPress : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    [ServerRpc(RequireOwnership = false)]
+    void OnTriggerExitRpc(Collider other)
     {
         if (other.gameObject == _pressingObject)
         {
@@ -50,5 +53,16 @@ public class ButtonPress : MonoBehaviour
             onRelease.Invoke();
             isPressed = false;
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        OnTriggerEnterRpc(other);
+    }
+
+    
+    void OnTriggerExit(Collider other)
+    {
+       OnTriggerExitRpc(other);
     }
 }

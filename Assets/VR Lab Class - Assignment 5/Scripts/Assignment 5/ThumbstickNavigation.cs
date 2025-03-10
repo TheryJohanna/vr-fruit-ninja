@@ -39,7 +39,7 @@ public class ThumbstickNavigation : MonoBehaviour
     [Header("Groundfollowing Configuration")]
     public LayerMask groundLayerMask;
     private RaycastHit _hit;
-    [Range(1.2f, 2.0f)]
+    [Range(1.0f, 2.0f)]
     public float height = 1.2f;
 
     private void Start()

@@ -7,7 +7,7 @@ public class ButtonPress : MonoBehaviour
     [Header("Button Settings")]
     public GameObject button;
     public float pressDistance;
-    private Transform _buttonTransform;
+    private float _buttonTransformY;
 
     private GameObject _pressingObject;
     private bool isPressed = false;
@@ -20,7 +20,7 @@ public class ButtonPress : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _buttonTransform = button.transform;
+        _buttonTransformY = button.transform.localPosition.y;
     }
 
     // Update is called once per frame
@@ -29,10 +29,10 @@ public class ButtonPress : MonoBehaviour
         
     }
 
-    [Rpc(SendTo.Everyone)]
-    void UpdateButtonPositionRpc(Vector3 newPosition)
+    [Rpc(SendTo.ClientsAndHost)]
+    void UpdateButtonPositionRpc(float newPosition)
     {
-        button.transform.localPosition = newPosition;
+        button.transform.localPosition = new Vector3(button.transform.localPosition.x, newPosition, button.transform.localPosition.z);
     }
     
     [Rpc(SendTo.Server)]
@@ -40,7 +40,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (!isPressed && other.CompareTag("User"))
         {
-            Vector3 newPosition = new Vector3(_buttonTransform.localPosition.x, _buttonTransform.localPosition.y - pressDistance, _buttonTransform.localPosition.z);
+            float newPosition = _buttonTransformY - pressDistance;
             UpdateButtonPositionRpc(newPosition);
             _pressingObject = other.gameObject;
             onPress.Invoke();
@@ -53,7 +53,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (other.gameObject == _pressingObject)
         {
-            Vector3 newPosition = new Vector3(_buttonTransform.localPosition.x, _buttonTransform.localPosition.y + pressDistance, _buttonTransform.localPosition.z);
+            float newPosition = _buttonTransformY - pressDistance;
             UpdateButtonPositionRpc(newPosition);
             onRelease.Invoke();
             isPressed = false;

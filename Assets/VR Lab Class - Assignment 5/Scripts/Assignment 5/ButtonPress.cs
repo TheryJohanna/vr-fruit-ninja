@@ -31,12 +31,11 @@ public class ButtonPress : MonoBehaviour
         
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [Rpc(SendTo.Server)]
     void OnTriggerEnterRpc(Collider other)
     {
         if (!isPressed && other.CompareTag("User"))
         {
-            Debug.Log(other.gameObject.name);
             button.transform.localPosition = new Vector3(_buttonTransform.localPosition.x, _buttonTransform.localPosition.y - pressDistance, _buttonTransform.localPosition.z);
             _pressingObject = other.gameObject;
             onPress.Invoke();
@@ -44,7 +43,7 @@ public class ButtonPress : MonoBehaviour
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [Rpc(SendTo.Server)]
     void OnTriggerExitRpc(Collider other)
     {
         if (other.gameObject == _pressingObject)

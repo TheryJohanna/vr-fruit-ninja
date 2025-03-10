@@ -39,11 +39,11 @@ public class FloatingSwords : MonoBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        RequestGrabServerRpc();
+        RequestGrabRpc();
     }
     
     [Rpc(SendTo.Server)] 
-    private void RequestGrabServerRpc()
+    private void RequestGrabRpc()
     {
         _isGrabbed.Value = true;
     }

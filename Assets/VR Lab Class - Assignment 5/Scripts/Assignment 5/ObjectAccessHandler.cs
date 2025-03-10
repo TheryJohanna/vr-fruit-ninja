@@ -35,7 +35,7 @@ public class ObjectAccessHandler : NetworkBehaviour
 
     #region RPCs
 
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Server, RequireOwnership = false)]
     private void GrabObjectRpc(ulong clientId)
     {
         isGrabbed.Value = true;

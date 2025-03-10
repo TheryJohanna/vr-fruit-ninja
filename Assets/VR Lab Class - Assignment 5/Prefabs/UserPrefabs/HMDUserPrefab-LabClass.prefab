@@ -2624,6 +2624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hitpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 9213549031503469563, guid: 632dd1bfe96e59144a53fdba83fc3759, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

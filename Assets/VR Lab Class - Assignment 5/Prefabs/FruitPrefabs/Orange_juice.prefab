@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2486957442714058776}
   - component: {fileID: 6594784104490276051}
   - component: {fileID: -7079709257433505758}
+  - component: {fileID: -3112099427730061782}
   m_Layer: 8
   m_Name: Orange_juice
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6723580601522748004, guid: 13eb80e7db763f04ba672ac47dcd79f8, type: 3}
+--- !u!114 &-3112099427730061782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964392289491849746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: 3246534098419751804, guid: 559411255bdd864439920349af24d086, type: 3}
+  - {fileID: 8949611004773052436, guid: 559411255bdd864439920349af24d086, type: 3}

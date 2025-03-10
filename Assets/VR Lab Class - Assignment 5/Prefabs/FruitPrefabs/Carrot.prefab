@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6298597768501847746}
   - component: {fileID: 613487050871423850}
   - component: {fileID: 8164418840708423361}
+  - component: {fileID: 6700517095236747765}
   m_Layer: 8
   m_Name: Carrot
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4458560081992831128, guid: 349ade66138b6a34c87dc8298ffdfbf1, type: 3}
+--- !u!114 &6700517095236747765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226143234442111459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: -6464270120749375656, guid: 8d2407195f5ae1543be72430ac16b8ab, type: 3}
+  - {fileID: -1692130590522717552, guid: 8d2407195f5ae1543be72430ac16b8ab, type: 3}

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -5625167681096290767}
   - component: {fileID: 4358231085186838192}
   - component: {fileID: 23431407093280992}
+  - component: {fileID: 7201790757195756552}
   m_Layer: 8
   m_Name: GreenPear
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5502381300968763765, guid: 9a2f26cbc72befa49a944c05836a7688, type: 3}
+--- !u!114 &7201790757195756552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031342750218946287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: -2933521000846027583, guid: 815ac4db75c6aa84dbacee8d84ac1e5b, type: 3}
+  - {fileID: 4052610393699767514, guid: 815ac4db75c6aa84dbacee8d84ac1e5b, type: 3}

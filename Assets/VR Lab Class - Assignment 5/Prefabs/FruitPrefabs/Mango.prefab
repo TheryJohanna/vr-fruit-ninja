@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -402518943381990758}
   - component: {fileID: 757705831179593260}
   - component: {fileID: 1617822890021682745}
+  - component: {fileID: 4732172159738491386}
   m_Layer: 8
   m_Name: Mango
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2096400302357360989, guid: 03dd4681d2c9aeb4a81cabf7f93544b2, type: 3}
+--- !u!114 &4732172159738491386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434894437825138648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: -9182217225944895262, guid: 717274cd78007c6409ea07f76e726320, type: 3}
+  - {fileID: 3443655957598955656, guid: 717274cd78007c6409ea07f76e726320, type: 3}

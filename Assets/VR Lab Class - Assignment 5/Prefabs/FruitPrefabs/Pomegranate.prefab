@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -6826052617511327621}
   - component: {fileID: -4467288810482690841}
   - component: {fileID: 4784494777694417958}
+  - component: {fileID: 6596148288376203040}
   m_Layer: 8
   m_Name: Pomegranate
   m_TagString: Untagged
@@ -223,3 +224,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1720253585041741984, guid: 8e070283d4ae1424bb7962db7de77c55, type: 3}
+--- !u!114 &6596148288376203040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022331581056914035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: 1873730992990914350, guid: b035dd92e41c11d489631b03267cd066, type: 3}
+  - {fileID: -3560585927191791740, guid: b035dd92e41c11d489631b03267cd066, type: 3}

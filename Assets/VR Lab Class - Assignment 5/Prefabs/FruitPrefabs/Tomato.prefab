@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -949452690797958279}
   - component: {fileID: 4451204001232341135}
   - component: {fileID: 7302158091514465680}
+  - component: {fileID: -2629273614388622852}
   m_Layer: 8
   m_Name: Tomato
   m_TagString: Untagged
@@ -355,3 +356,20 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-2629273614388622852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764354370668234337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: -478417391671331534, guid: a73510c5e18a3394094df372073388b6, type: 3}
+  - {fileID: 2234898411678423897, guid: a73510c5e18a3394094df372073388b6, type: 3}

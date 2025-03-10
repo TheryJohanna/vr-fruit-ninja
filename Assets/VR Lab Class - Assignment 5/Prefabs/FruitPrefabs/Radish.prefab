@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6463163572541442082}
   - component: {fileID: -7546860995294077516}
   - component: {fileID: -265855372862855285}
+  - component: {fileID: 6053512127863796037}
   m_Layer: 8
   m_Name: Radish
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7400456473201126231, guid: 5cc87926fad4ac843946da45fbcaf4f2, type: 3}
+--- !u!114 &6053512127863796037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881150811034372315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: 8192710085159627129, guid: 6a703e55393f7a34d92325c50146c381, type: 3}
+  - {fileID: -4866552640391096311, guid: 6a703e55393f7a34d92325c50146c381, type: 3}

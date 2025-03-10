@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1031768501167945925}
   - component: {fileID: 8491414938930087270}
   - component: {fileID: -5240584980411482416}
+  - component: {fileID: -6762801504450491046}
   m_Layer: 8
   m_Name: Peach
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2457180496365724230, guid: 166f15744266f1d4abe9845c582b7412, type: 3}
+--- !u!114 &-6762801504450491046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430352414651311707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: -2054693255349605519, guid: 8a4dc71ded84be541a9f602299a07722, type: 3}
+  - {fileID: 7757580297956822300, guid: 8a4dc71ded84be541a9f602299a07722, type: 3}

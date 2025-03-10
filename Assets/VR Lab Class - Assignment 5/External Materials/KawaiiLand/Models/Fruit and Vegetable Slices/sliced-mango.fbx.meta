@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c408ef951a962940a22812bde2a24b2
+guid: 717274cd78007c6409ea07f76e726320
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Fruit
+      name: Fruit.001
     second: {fileID: 2100000, guid: 8d9769e5801502e45a7673fc5c139f32, type: 2}
   materials:
     materialImportMode: 2

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 279344931459515062}
   - component: {fileID: 3769430602835315987}
   - component: {fileID: 1417299490463594969}
+  - component: {fileID: -5004922457999462611}
   m_Layer: 8
   m_Name: Avocado
   m_TagString: Untagged
@@ -83,3 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5004922457999462611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624801952131389452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 2
+  fruitSlices:
+  - {fileID: -1275681928300253068, guid: 8d53e2f12c4a76748801b470b10fce1f, type: 3}
+  - {fileID: -2717727426191772539, guid: 8d53e2f12c4a76748801b470b10fce1f, type: 3}

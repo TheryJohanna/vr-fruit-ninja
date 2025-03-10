@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8859415700050224528}
   - component: {fileID: -5692693904069644924}
   - component: {fileID: 8122494140003019810}
+  - component: {fileID: 8628407575836464962}
   m_Layer: 8
   m_Name: Corn
   m_TagString: Untagged
@@ -201,3 +202,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -171581874701873443, guid: 1911d94d518fbe448b13d7809b1fbf21, type: 3}
+--- !u!114 &8628407575836464962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954598576882336324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideMaterial: {fileID: 0}
+  sliceForce: 4
+  fruitSlices:
+  - {fileID: 566100572792932238, guid: 7b631fd23a07ad94da40e31718f6dda9, type: 3}
+  - {fileID: -8212476144396360019, guid: 7b631fd23a07ad94da40e31718f6dda9, type: 3}

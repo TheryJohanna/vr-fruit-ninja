@@ -211,8 +211,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4433673180914591881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9592b03a0ac005b45b60610cb0a20f30, type: 3}
+  m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insideMaterial: {fileID: 2100000, guid: b3e74fbe5a2b68f4299cb414ec9fb16e, type: 2}
+  insideMaterial: {fileID: 0}
   sliceForce: 2

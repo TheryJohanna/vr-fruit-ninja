@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Netcode;
+using Unity.Netcode.Components;
+using Unity.VisualScripting;
 
 public class FruitSlicer : MonoBehaviour
 {
@@ -10,15 +13,21 @@ public class FruitSlicer : MonoBehaviour
     {
         if (other.CompareTag("Sword")) // Check if hit by sword
         {
+            Debug.Log(other.name);
             Plane cuttingPlane = new Plane(other.transform.up, other.transform.position);
             GameObject[] slices = SliceObject(cuttingPlane);
 
             if (slices != null)
             {
-                foreach (GameObject slice in slices)
+                Debug.Log(slices.Length);
+                foreach (var slice in slices)
                 {
-                    Rigidbody rb = slice.AddComponent<Rigidbody>();
-                    rb.AddForce(other.transform.up * sliceForce, ForceMode.Impulse);
+                    if (!slice.IsUnityNull())
+                    {
+                        var rb = slice.AddComponent<Rigidbody>();
+                        var netRigidbody = slice.AddComponent<NetworkRigidbody>();
+                        rb.AddForce(other.transform.up * sliceForce, ForceMode.Impulse);
+                    }
                 }
 
                 Destroy(gameObject); // Destroy original object
@@ -49,15 +58,18 @@ public class FruitSlicer : MonoBehaviour
 
             if (v1Left && v2Left && v3Left)
             {
+                Debug.Log("left vertices");
                 AddTriangle(leftVertices, leftTriangles, v1, v2, v3);
             }
             else if (!v1Left && !v2Left && !v3Left)
             {
+                Debug.Log("right vertices");
                 AddTriangle(rightVertices, rightTriangles, v1, v2, v3);
             }
             else
             {
                 // Handle slicing when a triangle is split by the plane
+                Debug.Log("left and right vertices");
             }
         }
 
@@ -82,17 +94,31 @@ public class FruitSlicer : MonoBehaviour
     {
         if (vertices.Count == 0) return null;
 
-        GameObject slice = new GameObject("Slice");
-        slice.transform.position = transform.position;
-        slice.transform.rotation = transform.rotation;
+        GameObject slice = new GameObject("Slice")
+        {
+            transform =
+            {
+                position = transform.position,
+                rotation = transform.rotation
+            }
+        };
 
-        Mesh mesh = new Mesh();
-        mesh.vertices = vertices.ToArray();
-        mesh.triangles = triangles.ToArray();
+        Mesh mesh = new Mesh
+        {
+            vertices = vertices.ToArray(),
+            triangles = triangles.ToArray()
+        };
         mesh.RecalculateNormals();
 
         slice.AddComponent<MeshFilter>().mesh = mesh;
         slice.AddComponent<MeshRenderer>().material = insideMaterial;
+        
+        var netObject = slice.AddComponent<NetworkObject>();
+        slice.AddComponent<NetworkTransform>();
+        
+        netObject.Spawn();
+       
+        Debug.Log("slice created");
 
         return slice;
     }

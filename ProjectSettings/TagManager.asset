@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Peer
   - Sword
+  - User
   layers:
   - Default
   - TransparentFX

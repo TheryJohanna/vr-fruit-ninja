@@ -36,6 +36,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (!isPressed && other.CompareTag("User"))
         {
+            //Debug.Log(other.gameObject.name);
             button.transform.localPosition = new Vector3(_buttonTransform.localPosition.x, _buttonTransform.localPosition.y - pressDistance, _buttonTransform.localPosition.z);
             _pressingObject = other.gameObject;
             onPress.Invoke();

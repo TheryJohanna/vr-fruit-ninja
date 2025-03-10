@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lobby Settings [Assignment 5]
   m_EditorClassIdentifier: 
   autoStart: 1
-  lobbyName: GroupName
+  lobbyName: Jorah
   maxUsers: 10
   isPrivate: 0

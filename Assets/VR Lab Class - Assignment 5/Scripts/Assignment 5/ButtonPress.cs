@@ -53,7 +53,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (other.gameObject == _pressingObject)
         {
-            float newPosition = _buttonTransformY - pressDistance;
+            float newPosition = _buttonTransformY + pressDistance;
             UpdateButtonPositionRpc(newPosition);
             onRelease.Invoke();
             isPressed = false;

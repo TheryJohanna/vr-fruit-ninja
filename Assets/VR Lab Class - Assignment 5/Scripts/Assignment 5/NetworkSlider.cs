@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class NetworkSlider : MonoBehaviour
 {
-    public Slider slider;  // Reference to the UI Slider
+    public Slider slider; 
     private NetworkVariable<float> _sliderValue = new NetworkVariable<float>(0.5f);
 
     private void Start()

@@ -8,31 +8,31 @@ public class FruitSlicer : MonoBehaviour
 {
     public Material insideMaterial; // Material for the sliced part
     public float sliceForce = 2f;   // Force applied to sliced pieces
+    public GameObject[] fruitSlices;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Sword")) // Check if hit by sword
         {
             Debug.Log(other.name);
-            var cuttingPlane = new Plane(other.transform.up.normalized, other.transform.position);
-            GameObject[] slices = SliceObject(cuttingPlane);
-
-            if (slices != null)
+            if (fruitSlices is { Length: 2 })
             {
-                Debug.Log(slices.Length);
-                foreach (var slice in slices)
+                foreach (var slice in fruitSlices)
                 {
-                    if (!slice.IsUnityNull())
-                    {
-                        var rb = slice.AddComponent<Rigidbody>();
-                        var netRigidbody = slice.AddComponent<NetworkRigidbody>();
-                        rb.AddForce(other.transform.up * sliceForce, ForceMode.Impulse);
-                    }
+                    var newSlice = Instantiate(slice, gameObject.transform.position, gameObject.transform.rotation);
+                    var netObject = newSlice.AddComponent<NetworkObject>();
+                    var netTransform = newSlice.AddComponent<NetworkTransform>();
+                    var rigidbody = newSlice.AddComponent<Rigidbody>();
+                    var netRigidbody = newSlice.AddComponent<NetworkRigidbody>();
+                    
+                    netObject.Spawn();
+                    //rigidbody.AddForce();
                 }
-
-                Destroy(gameObject); // Destroy original object
             }
+
+            Destroy(gameObject); // Destroy original object
         }
+        
     }
 
     GameObject[] SliceObject(Plane plane)

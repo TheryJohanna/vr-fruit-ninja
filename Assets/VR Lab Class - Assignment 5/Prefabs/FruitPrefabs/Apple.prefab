@@ -216,3 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   insideMaterial: {fileID: 0}
   sliceForce: 2
+  fruitSlices:
+  - {fileID: 2619717941506534403, guid: 3c408ef951a962940a22812bde2a24b2, type: 3}
+  - {fileID: -2133280769981042555, guid: 3c408ef951a962940a22812bde2a24b2, type: 3}

@@ -14,7 +14,7 @@ public class FruitSlicer : MonoBehaviour
         if (other.CompareTag("Sword")) // Check if hit by sword
         {
             Debug.Log(other.name);
-            Plane cuttingPlane = new Plane(other.transform.up, other.transform.position);
+            var cuttingPlane = new Plane(other.transform.up.normalized, other.transform.position);
             GameObject[] slices = SliceObject(cuttingPlane);
 
             if (slices != null)

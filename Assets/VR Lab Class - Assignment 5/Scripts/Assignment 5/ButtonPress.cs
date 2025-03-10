@@ -31,7 +31,7 @@ public class ButtonPress : MonoBehaviour
         
     }
 
-    [Rpc(SendTo.Server)]
+    [Rpc(SendTo.Everyone)]
     void OnTriggerEnterRpc(Collider other)
     {
         if (!isPressed && other.CompareTag("User"))
@@ -44,7 +44,7 @@ public class ButtonPress : MonoBehaviour
         }
     }
 
-    [Rpc(SendTo.Server)]
+    [Rpc(SendTo.Everyone)]
     void OnTriggerExitRpc(Collider other)
     {
         if (other.gameObject == _pressingObject)

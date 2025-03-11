@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NetworkSlider : NetworkBehaviour
+public class NetworkSlider : MonoBehaviour
 {
     public Slider slider; 
     private NetworkVariable<float> _sliderValue = new NetworkVariable<float>(0.5f);

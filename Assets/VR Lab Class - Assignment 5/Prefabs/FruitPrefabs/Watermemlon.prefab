@@ -214,8 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fc2247fe3aa3441829c22bd4edfa85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insideMaterial: {fileID: 0}
   sliceForce: 4
   fruitSlices:
-  - {fileID: 7300302287048187150, guid: edef9dcb0c6b3ea4790c0c07091e0c91, type: 3}
-  - {fileID: 1535203178116460012, guid: edef9dcb0c6b3ea4790c0c07091e0c91, type: 3}
+  - {fileID: 2444023590929851526, guid: b6b52d9ae5189234480c49cc4c2a7d3a, type: 3}
+  - {fileID: 895934256915778381, guid: a2e4a490be9f2b24da7e18fd25cc0792, type: 3}

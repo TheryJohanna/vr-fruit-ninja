@@ -215,4 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliceForce: 4
-  fruitSlices: {fileID: 3558161923015965856, guid: 1061b2ffde7272e429906f1c33d7abbb, type: 3}
+  fruitSlices:
+  - {fileID: 1905419896268945569, guid: c76a430808a19d64d958133743f80d85, type: 3}
+  - {fileID: 5419896032118987106, guid: 74cf0701c969d7d4d9067fc40b32ceaa, type: 3}

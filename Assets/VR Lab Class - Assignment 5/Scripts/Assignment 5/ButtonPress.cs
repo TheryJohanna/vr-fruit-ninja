@@ -7,7 +7,7 @@ public class ButtonPress : NetworkBehaviour
     [Header("Button Settings")] public GameObject button;
     public float pressDistance;
     private float _yPos;
-    private NetworkVariable<float> _networkedYPos;
+    private NetworkVariable<float> _networkedYPos = new NetworkVariable<float>();
     private float _baselineY;
 
     private GameObject _pressingObject;

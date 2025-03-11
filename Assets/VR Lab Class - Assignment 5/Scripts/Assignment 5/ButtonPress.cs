@@ -2,7 +2,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ButtonPress : MonoBehaviour
+public class ButtonPress : NetworkBehaviour
 {
     [Header("Button Settings")]
     public GameObject button;
@@ -10,7 +10,7 @@ public class ButtonPress : MonoBehaviour
     private float _buttonTransformY;
 
     private GameObject _pressingObject;
-    private bool isPressed = false;
+    private bool _isPressed = false;
 
     [Header("Events")] 
     public UnityEvent onPress;
@@ -23,12 +23,6 @@ public class ButtonPress : MonoBehaviour
         _buttonTransformY = button.transform.localPosition.y;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     [Rpc(SendTo.ClientsAndHost)]
     void UpdateButtonPositionRpc(float newPosition)
     {
@@ -38,13 +32,13 @@ public class ButtonPress : MonoBehaviour
     [Rpc(SendTo.Server)]
     void OnTriggerEnterRpc(Collider other)
     {
-        if (!isPressed && other.CompareTag("User"))
+        if (!_isPressed && other.CompareTag("User"))
         {
             float newPosition = _buttonTransformY - pressDistance;
             UpdateButtonPositionRpc(newPosition);
             _pressingObject = other.gameObject;
             onPress.Invoke();
-            isPressed = true;
+            _isPressed = true;
         }
     }
 
@@ -56,7 +50,7 @@ public class ButtonPress : MonoBehaviour
             float newPosition = _buttonTransformY;
             UpdateButtonPositionRpc(newPosition);
             onRelease.Invoke();
-            isPressed = false;
+            _isPressed = false;
         }
     }
 

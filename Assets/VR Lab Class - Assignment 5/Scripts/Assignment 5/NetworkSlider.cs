@@ -15,13 +15,7 @@ public class NetworkSlider : MonoBehaviour
             slider = GetComponent<Slider>();
         
         slider.onValueChanged.AddListener(OnSliderValueChanged);
-        
-        _sliderValue.OnValueChanged += (oldValue, newValue) =>
-        {
-            slider.value = newValue;
-        };
-        
-        slider.value = _sliderValue.Value;
+
     }
 
     private void OnSliderValueChanged(float value)

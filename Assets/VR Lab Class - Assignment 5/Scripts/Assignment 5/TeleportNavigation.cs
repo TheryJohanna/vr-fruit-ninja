@@ -67,7 +67,7 @@ namespace Assignment3.SampleSolution
                 if (Physics.Raycast(hand.position, hand.forward * rayLength, out RaycastHit hit, 10f, groundLayerMask))
                 {
                     currentHitPoint = hit.point;
-                    Debug.Log("hit:" + hit.transform.name);
+                    //Debug.Log("hit:" + hit.transform.name);
                     ShowHitpoint(currentHitPoint);
                     if (teleportActionValue > teleportActivationThreshhold && !previewIsActive)
                     {

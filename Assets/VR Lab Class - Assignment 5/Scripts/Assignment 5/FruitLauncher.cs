@@ -92,6 +92,7 @@ public class FruitLauncher : MonoBehaviour
             "Big" => fruitsLarge,
             "Small" => fruitsSmall,
             "Mixed" => fruits,
+            "Debug" => fruitsDebug,
             _ => fruits
         };
     }

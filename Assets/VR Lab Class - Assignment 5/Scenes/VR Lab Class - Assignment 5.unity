@@ -82856,6 +82856,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Mixed
       m_Image: {fileID: 0}
+    - m_Text: Debug
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -148006,6 +148008,7 @@ MonoBehaviour:
   - {fileID: 3978743498136159248, guid: 4f393b93a0df5194b9f425cadda7ed51, type: 3}
   fruitsDebug:
   - {fileID: 4433673180914591881, guid: 3a8f68d3e6575c54896d6dc301c89114, type: 3}
+  - {fileID: 624801952131389452, guid: dd324597d148b8447a3fc9ba60a2c31a, type: 3}
   spawnPoint: {fileID: 1858896748}
   coneAngle: 15
   spawnButton: {fileID: 0}

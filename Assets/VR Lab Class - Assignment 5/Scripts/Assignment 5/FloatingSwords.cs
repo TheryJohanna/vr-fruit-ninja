@@ -28,7 +28,7 @@ public class FloatingSwords : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if (IsOwner)
+        if (IsServer)
         {
             if (!_isGrabbed.Value)
             {
@@ -41,10 +41,7 @@ public class FloatingSwords : NetworkBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        if (IsOwner)
-        {
-            RequestGrabRpc();
-        }
+        RequestGrabRpc(NetworkManager.LocalClientId);
     }
 
     private void OnRelease(SelectExitEventArgs args)
@@ -56,14 +53,17 @@ public class FloatingSwords : NetworkBehaviour
     }
 
     [Rpc(SendTo.Server)]
-    private void RequestGrabRpc()
+    private void RequestGrabRpc(ulong clientId)
     {
         _isGrabbed.Value = true;
+        GetComponent<NetworkObject>().ChangeOwnership(clientId);
     }
 
     [Rpc(SendTo.Server)]
     private void RequestReleaseRpc()
     {
         _isGrabbed.Value = false;
+        GetComponent<NetworkObject>().RemoveOwnership();
+        _originalY = _rigidbody.position.y;
     }
 }

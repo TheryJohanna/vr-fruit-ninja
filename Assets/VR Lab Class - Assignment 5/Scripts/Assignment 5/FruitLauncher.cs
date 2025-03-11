@@ -7,7 +7,7 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using TMPro;
 
-public class FruitLauncher : MonoBehaviour
+public class FruitLauncher : NetworkBehaviour
 {
     #region Member Variables
     [Header("Prefab Settings")]

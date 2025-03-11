@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NetworkSlider : MonoBehaviour
+public class NetworkSlider : NetworkBehaviour
 {
     public Slider slider; 
     private NetworkVariable<float> _sliderValue = new NetworkVariable<float>(0.5f);
@@ -15,13 +15,7 @@ public class NetworkSlider : MonoBehaviour
             slider = GetComponent<Slider>();
         
         slider.onValueChanged.AddListener(OnSliderValueChanged);
-        
-        _sliderValue.OnValueChanged += (oldValue, newValue) =>
-        {
-            slider.value = newValue;
-        };
-        
-        slider.value = _sliderValue.Value;
+
     }
 
     private void OnSliderValueChanged(float value)

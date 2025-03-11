@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class FloatingSwords : MonoBehaviour
+public class FloatingSwords : NetworkBehaviour
 {
     private Rigidbody _rigidbody;
     private float _originalY;

@@ -4,18 +4,24 @@ using Unity.Netcode;
 using Unity.Netcode.Components;
 using Unity.VisualScripting;
 using Unity.XR.CoreUtils;
+using UnityEngine.Events;
 
 public class FruitSlicer : NetworkBehaviour
 {
     public float sliceForce = 5f;   // Force applied to sliced pieces
     public GameObject[] fruitSlices;
+    //public UnityEvent onFruitSliced;
+
+    [HideInInspector] 
+    public GameObject launcher;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Sword")) // Check if hit by sword
         {
-            Debug.Log(other.name);
+            // Debug.Log(other.name);
             SliceFruitRpc();
+            launcher.GetComponent<FruitLauncher>().UpdateScoreSignRpc(1);
         }
     }
 
@@ -31,6 +37,8 @@ public class FruitSlicer : NetworkBehaviour
                 var rigidbody = newSlice.GetComponent<Rigidbody>();
                 netObject.Spawn();
                 rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-1f, 1f), 0f, 0f) * sliceForce, ForceMode.Impulse);
+                
+                Destroy(newSlice, 10f);
             }
         }
         Destroy(gameObject); // Destroy original object

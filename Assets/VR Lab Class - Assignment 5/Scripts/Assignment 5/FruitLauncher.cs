@@ -21,7 +21,7 @@ public class FruitLauncher : MonoBehaviour
     [Header("Spawn Settings")]
     public Transform spawnPoint;
     public float coneAngle = 30f;
-    public Button spawnButton;
+    public GameObject scoreSign;
     
     [Header("Physics Settings")]
     public float launchForce = 6f;
@@ -36,7 +36,6 @@ public class FruitLauncher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating(nameof(SpawnAndLaunch), 5f, 10f);
         dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
         GetListFromDropdown(dropdown.options[0].text);
     }
@@ -59,13 +58,29 @@ public class FruitLauncher : MonoBehaviour
         var currentFruit =  _currentList[UnityEngine.Random.Range(0, _currentList.Length)];
         var spawnedFruit = Instantiate(currentFruit, spawnPoint.position, Quaternion.identity);
         spawnedFruit.GetComponent<NetworkObject>().Spawn();
+        var fruitSlicer = spawnedFruit.GetComponent<FruitSlicer>();
+        if (!fruitSlicer.IsUnityNull())
+        {
+            fruitSlicer.launcher = gameObject;
+        }
         
         var fruitRigidbody = spawnedFruit.GetComponent<Rigidbody>();
         if (!fruitRigidbody.IsUnityNull())
         {
             var randomDirection = GetRandomDirectionInCone(spawnPoint.forward, spawnPoint.up, coneAngle);
-            fruitRigidbody.AddForce(randomDirection * UnityEngine.Random.Range(5.5f, 7f), ForceMode.Impulse);
+            fruitRigidbody.AddForce(randomDirection * UnityEngine.Random.Range(5.5f, 6f), ForceMode.Impulse);
         }
+        
+        Destroy(spawnedFruit, 10f);
+    }
+
+    [Rpc(SendTo.Server)]
+    public void UpdateScoreSignRpc(int score)
+    {
+        var scoreText = scoreSign.transform.Find("Score");
+        var text = scoreText.gameObject.GetComponent<TextMeshPro>().text;
+        var newScore = Int32.Parse(text) + score;
+        scoreText.gameObject.GetComponent<TextMeshPro>().text = newScore.ToString();
     }
     
     // Code from ChatGPT

@@ -28,18 +28,11 @@ public class FruitSlicer : NetworkBehaviour
         newSlice.SetLayerRecursively(8);
         foreach (Transform child in newSlice.transform)
         {
-            var netChildObject = child.AddComponent<NetworkObject>();
+            var netChildObject = child.GetComponent<NetworkObject>();
             netChildObject.Spawn();
-            child.gameObject.SetLayerRecursively(8);
-            child.AddComponent<NetworkTransform>();
-            var childRigidbody = child.gameObject.AddComponent<Rigidbody>();
-            child.gameObject.AddComponent<NetworkRigidbody>();
-            var childMeshCollider = child.gameObject.AddComponent<MeshCollider>();
-            childMeshCollider.convex = true;
-            
+            var childRigidbody = child.gameObject.GetComponent<Rigidbody>();
             childRigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-1f, 1f), 0f, 0f) * sliceForce, ForceMode.Impulse);
         }
-        //var rigidbody = newSlice.GetComponent<Rigidbody>();
         Destroy(gameObject); // Destroy original object
     }
     

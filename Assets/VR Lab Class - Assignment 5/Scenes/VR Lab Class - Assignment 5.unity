@@ -106898,7 +106898,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2018110002}
         m_TargetAssemblyTypeName: FruitLauncher, Assembly-CSharp
-        m_MethodName: SpawnAndLaunch
+        m_MethodName: SpawnAndLaunchRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -136289,13 +136289,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858896747}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.19318445, y: -0.6856857, z: -0.6802057, w: -0.17272855}
+  m_LocalRotation: {x: -0.21390204, y: -0.6800809, z: -0.67397773, w: -0.19362338}
   m_LocalPosition: {x: -0.016, y: 0.072, z: 0.245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2018110001}
-  m_LocalEulerAnglesHint: {x: -119.994, y: -88.284, z: -90}
+  m_LocalEulerAnglesHint: {x: -123.5, y: -88.284, z: -90}
 --- !u!1001 &1858990442
 PrefabInstance:
   m_ObjectHideFlags: 0

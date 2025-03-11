@@ -50,8 +50,8 @@ public class FruitLauncher : MonoBehaviour
     
     #region Helper Functions
     
-    [ServerRpc]
-    public void SpawnAndLaunch()
+    [Rpc(SendTo.Server, RequireOwnership = false)]
+    public void SpawnAndLaunchRpc()
     {
         if (_currentList.Length == 0 || spawnPoint.IsUnityNull())
             return;

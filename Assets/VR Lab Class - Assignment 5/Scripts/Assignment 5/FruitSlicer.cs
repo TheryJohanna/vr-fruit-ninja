@@ -49,13 +49,13 @@ public class FruitSlicer : NetworkBehaviour
         if (other.CompareTag("Sword")) // Check if hit by sword
         {
             SliceFruitRpc();
-            launcher.GetComponent<FruitLauncher>().UpdateScoreSign(1);
         }
     }
 
     [Rpc(SendTo.Server)]
     private void SliceFruitRpc()
     {
+        launcher.GetComponent<FruitLauncher>().UpdateScoreSign(1);
         if (fruitSlices.Length == 2)
         {
             foreach (var fruit in fruitSlices)

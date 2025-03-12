@@ -59,7 +59,11 @@ public class FloatingSwords : NetworkBehaviour
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        RequestGrabRpc(NetworkManager.LocalClientId);
+        if (!_isGrabbed.Value)
+        {
+            RequestGrabRpc(NetworkManager.LocalClientId);
+        }
+        
     }
 
     private void OnRelease(SelectExitEventArgs args)

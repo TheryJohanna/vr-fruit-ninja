@@ -9,6 +9,10 @@ public class FloatingSwords : NetworkBehaviour
     private float _originalY;
     private NetworkVariable<Vector3> _startPosition = new NetworkVariable<Vector3>(
         Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    private NetworkVariable<Vector3> _startRBPosition = new NetworkVariable<Vector3>(
+        Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    private NetworkVariable<Vector3> _startScale = new NetworkVariable<Vector3>(
+        Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     private float _randomness;
     private NetworkVariable<bool> _isGrabbed = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server);
@@ -28,12 +32,14 @@ public class FloatingSwords : NetworkBehaviour
         if (IsServer)
         {
             _startPosition.Value = transform.position;
+            _startRBPosition.Value = _rigidbody.position;
+            _startScale.Value = transform.localScale;
         }
         else
         {
-            Debug.Log(transform.position);
+            _rigidbody.position = _startRBPosition.Value;
+            transform.localScale = _startScale.Value;
             transform.position = _startPosition.Value;
-            Debug.Log(transform.position);
         }
     }
     

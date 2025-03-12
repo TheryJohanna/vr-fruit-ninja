@@ -1,4 +1,5 @@
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -6,15 +7,32 @@ public class FloatingSwords : NetworkBehaviour
 {
     private Rigidbody _rigidbody;
     private float _originalY;
+    private NetworkVariable<Vector3> _startPosition = new NetworkVariable<Vector3>(
+        Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     private float _randomness;
-    private NetworkVariable<bool> _isGrabbed = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    private NetworkVariable<bool> _isGrabbed = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone,
+        NetworkVariableWritePermission.Server);
     public float floatStrength = 0.05f;
     private XRGrabInteractable _grabInteractable;
+    private NetworkTransform _networkTransform;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _grabInteractable = GetComponent<XRGrabInteractable>();
+        _networkTransform = GetComponent<NetworkTransform>();
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer)
+        {
+            _startPosition.Value = transform.position;
+        }
+        else
+        {
+            transform.position = _startPosition.Value;
+        }
     }
     
     void Start()
@@ -28,6 +46,7 @@ public class FloatingSwords : NetworkBehaviour
 
     void FixedUpdate()
     {
+        if (!IsServer) return;
         
         if (!_isGrabbed.Value)
         {

@@ -28,15 +28,14 @@ public class FloatingSwords : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if (IsServer)
+        
+        if (!_isGrabbed.Value)
         {
-            if (!_isGrabbed.Value)
-            {
-                float floatOffset = Mathf.Sin(Time.time + _randomness) * floatStrength;
-                _rigidbody.MovePosition(new Vector3(_rigidbody.position.x, _originalY + floatOffset,
-                    _rigidbody.position.z));
-            }
+            float floatOffset = Mathf.Sin(Time.time + _randomness) * floatStrength;
+            _rigidbody.MovePosition(new Vector3(_rigidbody.position.x, _originalY + floatOffset,
+                _rigidbody.position.z));
         }
+
     }
 
     private void OnGrab(SelectEnterEventArgs args)
@@ -57,6 +56,8 @@ public class FloatingSwords : NetworkBehaviour
     {
         _isGrabbed.Value = true;
         GetComponent<NetworkObject>().ChangeOwnership(clientId);
+        
+        _rigidbody.isKinematic = true;
     }
 
     [Rpc(SendTo.Server)]
@@ -65,5 +66,9 @@ public class FloatingSwords : NetworkBehaviour
         _isGrabbed.Value = false;
         GetComponent<NetworkObject>().RemoveOwnership();
         _originalY = _rigidbody.position.y;
+        
+        _rigidbody.isKinematic = false;
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 }

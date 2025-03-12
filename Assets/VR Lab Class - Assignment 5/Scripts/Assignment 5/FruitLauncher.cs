@@ -74,7 +74,7 @@ public class FruitLauncher : MonoBehaviour
         Destroy(spawnedFruit, 10f);
     }
 
-    [Rpc(SendTo.Server)]
+    [Rpc(SendTo.Everyone)]
     public void UpdateScoreSignRpc(int score)
     {
         var scoreText = scoreSign.transform.Find("Score");

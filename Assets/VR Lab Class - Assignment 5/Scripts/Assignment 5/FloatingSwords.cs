@@ -31,7 +31,9 @@ public class FloatingSwords : NetworkBehaviour
         }
         else
         {
+            Debug.Log(transform.position);
             transform.position = _startPosition.Value;
+            Debug.Log(transform.position);
         }
     }
     
@@ -44,7 +46,7 @@ public class FloatingSwords : NetworkBehaviour
         _grabInteractable.selectExited.AddListener(OnRelease);
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if (!IsServer) return;
         
@@ -55,7 +57,7 @@ public class FloatingSwords : NetworkBehaviour
                 _rigidbody.position.z));
         }
 
-    }
+    }*/
 
     private void OnGrab(SelectEnterEventArgs args)
     {

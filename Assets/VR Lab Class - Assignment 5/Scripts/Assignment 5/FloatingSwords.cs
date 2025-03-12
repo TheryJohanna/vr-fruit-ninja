@@ -8,44 +8,54 @@ public class FloatingSwords : NetworkBehaviour
     private Rigidbody _rigidbody;
     private float _originalY;
     private NetworkVariable<Vector3> _startPosition = new NetworkVariable<Vector3>(
-        Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
-    private NetworkVariable<Vector3> _startRBPosition = new NetworkVariable<Vector3>(
-        Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+        Vector3.zero, 
+        NetworkVariableReadPermission.Everyone, 
+        NetworkVariableWritePermission.Server
+        );
+    
     private NetworkVariable<Vector3> _startScale = new NetworkVariable<Vector3>(
-        Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+        Vector3.zero, 
+        NetworkVariableReadPermission.Everyone, 
+        NetworkVariableWritePermission.Server
+        );
     private float _randomness;
-    private NetworkVariable<bool> _isGrabbed = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone,
-        NetworkVariableWritePermission.Server);
+    private NetworkVariable<bool> _isGrabbed = new NetworkVariable<bool>(
+        false, 
+        NetworkVariableReadPermission.Everyone,
+        NetworkVariableWritePermission.Server
+        );
+    
     public float floatStrength = 0.05f;
     private XRGrabInteractable _grabInteractable;
-    private NetworkTransform _networkTransform;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _grabInteractable = GetComponent<XRGrabInteractable>();
-        _networkTransform = GetComponent<NetworkTransform>();
     }
 
     public override void OnNetworkSpawn()
     {
         if (IsServer)
         {
+            Debug.Log($"Spawning FloatingSwords at {transform.position} with scale: {transform.localScale}");
             _startPosition.Value = transform.position;
-            _startRBPosition.Value = _rigidbody.position;
             _startScale.Value = transform.localScale;
+            Debug.Log($"net variables: {_startPosition.Value}, {_startScale.Value} ");
         }
         else
         {
-            _rigidbody.position = _startRBPosition.Value;
-            transform.localScale = _startScale.Value;
-            transform.position = _startPosition.Value;
+            Debug.Log($"Client Spawning FloatingSwords at {transform.position} with scale: {transform.localScale}");
+            
+           transform.position = _startPosition.Value;
+           transform.localScale = _startScale.Value;
+           Debug.Log($"client net variables: {_startPosition.Value}, {_startScale.Value} ");
         }
     }
     
     void Start()
     {
-        _originalY = _rigidbody.position.y;
+        _originalY = transform.position.y;
         _randomness = Random.Range(0f, Mathf.PI * 2f);
         
         _grabInteractable.selectEntered.AddListener(OnGrab);
@@ -58,9 +68,9 @@ public class FloatingSwords : NetworkBehaviour
         
         if (!_isGrabbed.Value)
         {
-            float floatOffset = Mathf.Sin(Time.time + _randomness) * floatStrength;
-            _rigidbody.MovePosition(new Vector3(_rigidbody.position.x, _originalY + floatOffset,
-                _rigidbody.position.z));
+            var floatOffset = Mathf.Sin(Time.time + _randomness) * floatStrength;
+            _rigidbody.MovePosition(new Vector3(transform.position.x, _originalY + floatOffset,
+                transform.position.z));
         }
 
     }
@@ -87,7 +97,6 @@ public class FloatingSwords : NetworkBehaviour
     {
         _isGrabbed.Value = true;
         GetComponent<NetworkObject>().ChangeOwnership(clientId);
-        
         _rigidbody.isKinematic = true;
     }
 
@@ -96,10 +105,8 @@ public class FloatingSwords : NetworkBehaviour
     {
         _isGrabbed.Value = false;
         GetComponent<NetworkObject>().RemoveOwnership();
-        _originalY = _rigidbody.position.y;
-        
+        _originalY = transform.position.y;
         _rigidbody.isKinematic = false;
-        _rigidbody.velocity = Vector3.zero;
-        _rigidbody.angularVelocity = Vector3.zero;
     }
+    
 }

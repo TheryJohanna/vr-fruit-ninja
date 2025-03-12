@@ -12,14 +12,42 @@ public class FruitSlicer : NetworkBehaviour
     public GameObject[] fruitSlices;
     
 
-    [HideInInspector] 
+    //[HideInInspector] 
     public GameObject launcher;
+    private ulong _launcherId;
+    public NetworkVariable<ulong> netLauncherId = new NetworkVariable<ulong>(0);
+
+    void Awake()
+    {
+        netLauncherId.OnValueChanged += UpdateLauncher;
+    }
+
+    public void SetLauncher(NetworkVariable<ulong> netId)
+    {
+        if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(netId.Value, out var l))
+        {
+            Debug.Log("Launcher set");
+            launcher = l.gameObject;
+        }
+    }
+
+    private void UpdateLauncher(ulong oldId, ulong newId)
+    {
+        if (IsServer)
+        {
+            netLauncherId.Value = newId;
+        }
+        else
+        {
+            _launcherId = netLauncherId.Value;
+        }
+        SetLauncher(netLauncherId);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Sword")) // Check if hit by sword
         {
-            // Debug.Log(other.name);
             SliceFruitRpc();
             launcher.GetComponent<FruitLauncher>().UpdateScoreSign(1);
         }

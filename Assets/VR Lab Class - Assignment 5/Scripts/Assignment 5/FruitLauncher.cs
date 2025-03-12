@@ -24,6 +24,8 @@ public class FruitLauncher : NetworkBehaviour
     public GameObject scoreSign;
     private int _score = 0;
     private NetworkVariable<int> _netScore = new NetworkVariable<int>();
+    private ulong _launcherId;
+    
     
     [Header("Physics Settings")]
     public float launchForce = 6f;
@@ -44,16 +46,14 @@ public class FruitLauncher : NetworkBehaviour
         
         // get score at start of lobby
         var startScore = scoreSign.transform.Find("Score");
-        Debug.Log(startScore);
         _score = Int32.Parse(scoreSign.transform.Find("Score").GetComponent<TextMeshPro>().text);
-        
-        // network update listener
-        _netScore.OnValueChanged += UpdateScore;
     }
 
     private void Awake()
     {
         Instance = this;
+        // network update listener
+        _netScore.OnValueChanged += UpdateScore;
     }
 
     #endregion
@@ -72,7 +72,7 @@ public class FruitLauncher : NetworkBehaviour
         var fruitSlicer = spawnedFruit.GetComponent<FruitSlicer>();
         if (!fruitSlicer.IsUnityNull())
         {
-            fruitSlicer.launcher = gameObject;
+            fruitSlicer.netLauncherId.Value = gameObject.GetComponent<NetworkObject>().NetworkObjectId;
         }
         
         var fruitRigidbody = spawnedFruit.GetComponent<Rigidbody>();
@@ -81,25 +81,28 @@ public class FruitLauncher : NetworkBehaviour
             var randomDirection = GetRandomDirectionInCone(spawnPoint.forward, spawnPoint.up, coneAngle);
             fruitRigidbody.AddForce(randomDirection * UnityEngine.Random.Range(5.5f, 6f), ForceMode.Impulse);
         }
-        
-        Destroy(spawnedFruit, 10f);
+        //Destroy(spawnedFruit, 10f);
     }
     
     private void UpdateScore(int previousScore, int newScore)
     {
+        Debug.Log($"updated score: {previousScore} -> {newScore}");
         _score = newScore;
-        scoreSign.transform.Find("Score").GetComponent<TextMeshPro>().text = newScore.ToString();
+        scoreSign.transform.Find("Score").GetComponent<TextMeshPro>().text = _netScore.Value.ToString();
+        Debug.Log("updated sign");
     }
 
     public void UpdateScoreSign(int score)
     {
-        if (IsOwner)
+        if (IsServer)
         {
             _netScore.Value = _score + score;
+            Debug.Log($"Score on server: {_netScore.Value}");
         }
         else
         {
             _score = _netScore.Value;
+            Debug.Log($"Score on client: {_score}");
         }
     }
     

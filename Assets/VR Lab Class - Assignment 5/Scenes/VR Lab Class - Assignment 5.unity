@@ -3549,7 +3549,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4789330849309193299, guid: 689e0e395ec9cb243b15de84f377e7c5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 485914111}
+      addedObject: {fileID: 485914115}
   m_SourcePrefab: {fileID: 100100000, guid: 689e0e395ec9cb243b15de84f377e7c5, type: 3}
 --- !u!4 &47218635 stripped
 Transform:
@@ -25237,7 +25237,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 2
   m_AngularVelocityDamping: 1
@@ -25292,7 +25292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatStrength: 0.05
---- !u!114 &326693565
+--- !u!114 &326693569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25304,7 +25304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &326693566
+--- !u!114 &326693570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25323,16 +25323,16 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
-  InLocalSpace: 0
+  InLocalSpace: 1
   Interpolate: 1
   SlerpPosition: 0
 --- !u!1001 &326715199
@@ -36913,7 +36913,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4789330849309193299, guid: 689e0e395ec9cb243b15de84f377e7c5, type: 3}
   m_PrefabInstance: {fileID: 47218634}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &485914111
+--- !u!114 &485914115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36925,7 +36925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2173851256
+  GlobalObjectIdHash: 1196654427
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -38099,10 +38099,10 @@ PrefabInstance:
       addedObject: {fileID: 326693553}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4f354ba23c3e35741885729ce4a3a3b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 326693566}
+      addedObject: {fileID: 326693570}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 4f354ba23c3e35741885729ce4a3a3b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 326693565}
+      addedObject: {fileID: 326693569}
   m_SourcePrefab: {fileID: 100100000, guid: 4f354ba23c3e35741885729ce4a3a3b3, type: 3}
 --- !u!1001 &504535370
 PrefabInstance:
@@ -50985,7 +50985,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -51046,16 +51046,16 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
-  InLocalSpace: 0
+  InLocalSpace: 1
   Interpolate: 1
   SlerpPosition: 0
 --- !u!114 &696128420
@@ -92622,7 +92622,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 2
   m_VelocityDamping: 0.326
   m_VelocityScale: 1
   m_AngularVelocityDamping: 0.348
@@ -92683,16 +92683,16 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
-  InLocalSpace: 0
+  InLocalSpace: 1
   Interpolate: 1
   SlerpPosition: 0
 --- !u!114 &1294219506

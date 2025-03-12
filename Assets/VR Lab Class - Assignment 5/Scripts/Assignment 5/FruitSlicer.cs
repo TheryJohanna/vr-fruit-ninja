@@ -10,7 +10,7 @@ public class FruitSlicer : NetworkBehaviour
 {
     public float sliceForce = 5f;   // Force applied to sliced pieces
     public GameObject[] fruitSlices;
-    //public UnityEvent onFruitSliced;
+    
 
     [HideInInspector] 
     public GameObject launcher;
@@ -21,7 +21,7 @@ public class FruitSlicer : NetworkBehaviour
         {
             // Debug.Log(other.name);
             SliceFruitRpc();
-            launcher.GetComponent<FruitLauncher>().UpdateScoreSignRpc(1);
+            launcher.GetComponent<FruitLauncher>().UpdateScoreSign(1);
         }
     }
 

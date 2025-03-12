@@ -13,7 +13,8 @@ public class ButtonPress : NetworkBehaviour
     private GameObject _pressingObject;
     private bool _isPressed = false;
 
-    [Header("Events")] public UnityEvent onPress;
+    [Header("Events")] 
+    public UnityEvent onPress;
     public UnityEvent onRelease;
 
 

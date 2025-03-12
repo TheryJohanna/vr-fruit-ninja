@@ -7,7 +7,7 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using TMPro;
 
-public class FruitLauncher : MonoBehaviour
+public class FruitLauncher : NetworkBehaviour
 {
     #region Member Variables
     [Header("Prefab Settings")]
@@ -22,6 +22,8 @@ public class FruitLauncher : MonoBehaviour
     public Transform spawnPoint;
     public float coneAngle = 30f;
     public GameObject scoreSign;
+    private int _score = 0;
+    private NetworkVariable<int> _netScore = new NetworkVariable<int>();
     
     [Header("Physics Settings")]
     public float launchForce = 6f;
@@ -36,8 +38,17 @@ public class FruitLauncher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get dropdown value at start of lobby
         dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
         GetListFromDropdown(dropdown.options[0].text);
+        
+        // get score at start of lobby
+        var startScore = scoreSign.transform.Find("Score");
+        Debug.Log(startScore);
+        _score = Int32.Parse(scoreSign.transform.Find("Score").GetComponent<TextMeshPro>().text);
+        
+        // network update listener
+        _netScore.OnValueChanged += UpdateScore;
     }
 
     private void Awake()
@@ -73,14 +84,23 @@ public class FruitLauncher : MonoBehaviour
         
         Destroy(spawnedFruit, 10f);
     }
-
-    [Rpc(SendTo.Everyone)]
-    public void UpdateScoreSignRpc(int score)
+    
+    private void UpdateScore(int previousScore, int newScore)
     {
-        var scoreText = scoreSign.transform.Find("Score");
-        var text = scoreText.gameObject.GetComponent<TextMeshPro>().text;
-        var newScore = Int32.Parse(text) + score;
-        scoreText.gameObject.GetComponent<TextMeshPro>().text = newScore.ToString();
+        _score = newScore;
+        scoreSign.transform.Find("Score").GetComponent<TextMeshPro>().text = newScore.ToString();
+    }
+
+    public void UpdateScoreSign(int score)
+    {
+        if (IsOwner)
+        {
+            _netScore.Value = _score + score;
+        }
+        else
+        {
+            _score = _netScore.Value;
+        }
     }
     
     // Code from ChatGPT

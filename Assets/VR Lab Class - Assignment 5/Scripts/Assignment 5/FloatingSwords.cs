@@ -38,18 +38,17 @@ public class FloatingSwords : NetworkBehaviour
     {
         if (IsServer)
         {
-            Debug.Log($"Spawning FloatingSwords at {transform.position} with scale: {transform.localScale}");
+            //Debug.Log($"Spawning FloatingSwords at {transform.position} with scale: {transform.localScale}");
             _startPosition.Value = transform.position;
             _startScale.Value = transform.localScale;
-            Debug.Log($"net variables: {_startPosition.Value}, {_startScale.Value} ");
+            //Debug.Log($"net variables: {_startPosition.Value}, {_startScale.Value} ");
         }
         else
-        {
-            Debug.Log($"Client Spawning FloatingSwords at {transform.position} with scale: {transform.localScale}");
-            
+        { 
+            //Debug.Log($"Client Spawning FloatingSwords at {transform.position} with scale: {transform.localScale}");
            transform.position = _startPosition.Value;
            transform.localScale = _startScale.Value;
-           Debug.Log($"client net variables: {_startPosition.Value}, {_startScale.Value} ");
+           //Debug.Log($"client net variables: {_startPosition.Value}, {_startScale.Value} ");
         }
     }
     

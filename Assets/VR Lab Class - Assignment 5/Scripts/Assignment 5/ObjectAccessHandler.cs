@@ -24,27 +24,24 @@ public class ObjectAccessHandler : NetworkBehaviour
     public void Release()
     {
         if (IsOwner)
-        {
             ReleaseObjectRpc();
-            _isGrabbed.Value = false;
-        }
-            
     }
 
     #endregion
 
     #region RPCs
 
-    [Rpc(SendTo.Server, RequireOwnership = false)]
+    [Rpc(SendTo.Server)]
     private void GrabObjectRpc(ulong clientId)
     {
         _isGrabbed.Value = true;
         GetComponent<NetworkObject>().ChangeOwnership(clientId);
     }
 
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Server)]
     private void ReleaseObjectRpc()
     {
+        _isGrabbed.Value = false;
         GetComponent<NetworkObject>().RemoveOwnership();
     }
 

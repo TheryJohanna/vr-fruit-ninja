@@ -92,6 +92,19 @@ public class FruitLauncher : NetworkBehaviour
         Debug.Log("updated sign");
     }
 
+    public void ResetScoreSign()
+    {
+        if (IsServer)
+        {
+            _netScore.Value = 0;
+            Debug.Log($"Score on server: {_netScore.Value}");
+        }
+        else
+        {
+            _score = _netScore.Value;
+            Debug.Log($"Score on client: {_score}");
+        }
+    }
     public void UpdateScoreSign(int score)
     {
         if (IsServer)

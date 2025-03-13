@@ -17,6 +17,8 @@ public class ButtonPress : NetworkBehaviour
     public UnityEvent onPress;
     public UnityEvent onRelease;
 
+    public GameObject launcherRight;
+    public GameObject launcherLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,8 @@ public class ButtonPress : NetworkBehaviour
         {
             if (IsOwner)
             {
+                launcherRight.GetComponent<FruitLauncher>().ResetScoreSign();
+                launcherLeft.GetComponent<FruitLauncher>().ResetScoreSign();
                 _networkedYPos.Value = _baselineY;
                 onRelease.Invoke();
                 _isPressed = false;

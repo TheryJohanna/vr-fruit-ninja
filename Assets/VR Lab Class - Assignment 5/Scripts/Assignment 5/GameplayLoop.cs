@@ -10,6 +10,7 @@ public class GameplayLoop : NetworkBehaviour
     [Header("Game Settings")] 
     public Slider roundTimeSlider;
     public Slider speedSlider;
+    public Collider buttonCollider;
     public UnityEvent onLaunch;
     
     // Start is called before the first frame update
@@ -33,11 +34,13 @@ public class GameplayLoop : NetworkBehaviour
     IEnumerator Loop()
     {
         var elapsedTime = 0f;
+        buttonCollider.GetComponent<ButtonPress>().isPressable = false;
         while (elapsedTime < roundTimeSlider.value)
         {
             yield return new WaitForSeconds(speedSlider.value);
             onLaunch?.Invoke();
             elapsedTime += speedSlider.value;
         }
+        buttonCollider.GetComponent<ButtonPress>().isPressable = true;
     }
 }

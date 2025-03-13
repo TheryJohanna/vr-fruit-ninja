@@ -81,7 +81,7 @@ public class FruitLauncher : NetworkBehaviour
             var randomDirection = GetRandomDirectionInCone(spawnPoint.forward, spawnPoint.up, coneAngle);
             fruitRigidbody.AddForce(randomDirection * UnityEngine.Random.Range(5.5f, 6f), ForceMode.Impulse);
         }
-        //Destroy(spawnedFruit, 10f);
+        Destroy(spawnedFruit, 10f);
     }
     
     private void UpdateScore(int previousScore, int newScore)

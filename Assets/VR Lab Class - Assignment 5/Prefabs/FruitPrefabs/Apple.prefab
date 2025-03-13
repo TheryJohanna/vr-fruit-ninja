@@ -218,19 +218,11 @@ MonoBehaviour:
   fruitSlices:
   - {fileID: 1905419896268945569, guid: c76a430808a19d64d958133743f80d85, type: 3}
   - {fileID: 5419896032118987106, guid: 74cf0701c969d7d4d9067fc40b32ceaa, type: 3}
-  onFruitSliced:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  sliceAudioSource: {fileID: 0}
+  sliceSounds:
+  - {fileID: 8300000, guid: b30c7ee738dc04e7e8a14fe2bb2cbd77, type: 3}
+  - {fileID: 8300000, guid: eafe78f9b1fbd4064b8ff88d3eb57a07, type: 3}
+  - {fileID: 8300000, guid: c60f55a3468b3451d978f4a0e5985afb, type: 3}
   launcher: {fileID: 0}
+  netLauncherId:
+    m_InternalValue: 0

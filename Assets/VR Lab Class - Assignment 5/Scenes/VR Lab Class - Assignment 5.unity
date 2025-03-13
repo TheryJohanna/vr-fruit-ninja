@@ -83174,7 +83174,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1162501191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e75a5313fda6ce14881e8c0f55e1b7cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 02a5f52600f07544383e20203ae729a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 0}
@@ -95074,6 +95074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundTimeSlider: {fileID: 697189410}
   speedSlider: {fileID: 1864620994}
+  buttonCollider: {fileID: 1463615838}
   onLaunch:
     m_PersistentCalls:
       m_Calls:
@@ -107400,6 +107401,7 @@ MonoBehaviour:
         m_CallState: 2
   launcherRight: {fileID: 1937916198}
   launcherLeft: {fileID: 2018109998}
+  isPressable: 1
 --- !u!54 &1463615837
 Rigidbody:
   m_ObjectHideFlags: 0

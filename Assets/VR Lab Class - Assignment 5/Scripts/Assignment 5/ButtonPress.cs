@@ -20,6 +20,9 @@ public class ButtonPress : NetworkBehaviour
     public GameObject launcherRight;
     public GameObject launcherLeft;
 
+    
+    public bool isPressable = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +38,7 @@ public class ButtonPress : NetworkBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!_isPressed && other.CompareTag("User"))
+        if (!_isPressed && other.CompareTag("User") && isPressable)
         {
             if (IsOwner)
             {
@@ -54,7 +57,7 @@ public class ButtonPress : NetworkBehaviour
     
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == _pressingObject)
+        if (other.gameObject == _pressingObject && isPressable)
         {
             if (IsOwner)
             {

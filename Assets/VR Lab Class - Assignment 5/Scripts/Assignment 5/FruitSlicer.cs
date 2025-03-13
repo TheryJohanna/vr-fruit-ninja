@@ -8,11 +8,11 @@ using UnityEngine.Events;
 
 public class FruitSlicer : NetworkBehaviour
 {
+    [Header("Slicing Settings")]
     public float sliceForce = 5f;   // Force applied to sliced pieces
     public GameObject[] fruitSlices;
     
-
-    //[HideInInspector] 
+    [HideInInspector] 
     public GameObject launcher;
     private ulong _launcherId;
     public NetworkVariable<ulong> netLauncherId = new NetworkVariable<ulong>(0);

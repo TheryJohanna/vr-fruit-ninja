@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5690640464713074889}
   - component: {fileID: 8743436102362253164}
   - component: {fileID: 6823546650438415270}
-  - component: {fileID: 5791848759600823548}
   - component: {fileID: -812764896017224138}
   - component: {fileID: -6221451555313601129}
   - component: {fileID: -6826052617511327621}
@@ -90,27 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5791848759600823548
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5022331581056914035}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.15777105
-  m_Center: {x: -0.00000035762787, y: -0.13924569, z: -0.00000008940697}
 --- !u!54 &-812764896017224138
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,3 +218,6 @@ MonoBehaviour:
   fruitSlices:
   - {fileID: 625353784190675702, guid: ae4c64638b121834bb43225c1f72eb4b, type: 3}
   - {fileID: 1541994278213036009, guid: 7f8b426244f1eee41bea640c2d90de03, type: 3}
+  launcher: {fileID: 0}
+  netLauncherId:
+    m_InternalValue: 0

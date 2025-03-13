@@ -13,12 +13,22 @@ public class NetworkDropdown : NetworkBehaviour
     
     void Start()
     {
-        if (!IsHost)
+        if (dropdown == null)
         {
-            dropdown.interactable = false;
+            dropdown = GetComponent<TMP_Dropdown>();
         }
         dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
         Debug.Log("started");
+        Debug.Log($"host: {IsHost}, client: {IsClient}, server: {IsServer}");
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        if (!IsServer)
+        {
+            dropdown.interactable = false;
+        }
         Debug.Log($"host: {IsHost}, client: {IsClient}, server: {IsServer}");
     }
 
